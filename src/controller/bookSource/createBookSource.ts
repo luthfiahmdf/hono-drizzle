@@ -7,7 +7,7 @@ import { HTTPException } from "hono/http-exception";
 
 export const createBookSourceController = new Hono();
 
-createBookSourceController.post("/create", async (c) => {
+createBookSourceController.post("/", async (c) => {
   try {
     const request = VSCREATEBOOKSOURCE.parse(
       await c.req.json()

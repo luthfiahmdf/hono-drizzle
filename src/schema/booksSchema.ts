@@ -27,3 +27,13 @@ export const categoryBookRelation = relations(categories, ({ many }) => ({
 export const bookSourceRelation = relations(bookSources, ({ many }) => ({
   books: many(books),
 }));
+export const booksRelations = relations(books, ({ one }) => ({
+  category: one(categories, {
+    fields: [books.categoryId],
+    references: [categories.id],
+  }),
+  bookSource: one(bookSources, {
+    fields: [books.bookSourceId],
+    references: [bookSources.id],
+  }),
+}));
